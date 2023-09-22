@@ -1,6 +1,7 @@
 
 //! selectors
 const studentSave = document.querySelector(".studentSave")
+const create =document.querySelector(".create")
 
 // Student Data
 const studentTc =document.querySelector(".studentTc")
@@ -50,6 +51,39 @@ const explanation =document.querySelector(".explanation")
 //! events
 
 studentSave.addEventListener("click", ()=>{
+
+   const newCreateStudent = document.createElement("div")
+  
+   newCreateStudent.classList.add("card")
+   newCreateStudent.classList.add("text-center")
+   newCreateStudent.setAttribute("style","width:18rem")
+   newCreateStudent.innerHTML = `
+  
+          <div class="card-body">
+            <div>
+              <h5 class="card-title">ÖĞRENCİ ADI</h5>
+              <p>${studentName.value}</p>
+            </div>
+            <div>
+              <h5 class="card-title">SINIFI</h5>
+              <p>${studentSınıf.value}</p>
+            </div>
+            <h5 class="card-title">AÇIKLAMA</h5>
+            <p class="card-text">
+            ${explanation.value}
+            </p>
+            <a href="#" class="btn btn-primary">Detay</a>
+          </div>
+        
+
+    
+        
+      
+    
+    `
+{/* <div class="card d-flex text-center mb-3" style="width: 18rem"></div> */}
+
+    create.appendChild(newCreateStudent)
     //Student 
     console.log(studentTc.value);
     console.log(studentName.value);
@@ -91,4 +125,10 @@ studentSave.addEventListener("click", ()=>{
     console.log(educationFee.value);
     console.log(paymentDay.value);
     console.log(explanation.value);
+
+
+
+    console.log(create);
+
+
 })
