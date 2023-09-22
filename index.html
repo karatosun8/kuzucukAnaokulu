@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ÖZEL MAMAK KUZUCUKLAR ANAOKULU</title>
+    <!-- Bootsrap Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Style Css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="text-secondary text-center display-5 my-5 fw-bolder">
+      ÖZEL MAMAK KUZUCUKLAR ANAOKULU
+    </header>
+
+    <div class="container text-center w-100">
+      <!-- Button trigger modal -->
+      <button
+        type="button"
+        class="btn btn-primary my-5"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        Öğrenci Veri Girişi
+      </button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        style="margin-left: 0"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" style="margin-left: 350px;">
+          <div
+            class="modal-content d-flex justify-content-start"
+            style="width: 1000px"
+          >
+            <div>
+              <div class="modal-header text-center">
+                <h1 class="modal-title fs-5" id="">ÖĞRENCİ VERİ GİRİŞİ</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <!-- Öğrenci Kayıt Bilgileri Start -->
+                <form class="d-flex gap-4">
+                  <div class="mb-3 form-control">
+                    <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                      ÖĞRENCİ BİLGİLERİ
+                    </h1>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="studentTc form-control w-100"
+                        id=""
+                        placeholder="T.C. Kimlik No"
+                      />
+                      <label for="floatingInput">T.C. Kimlik No</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="studentName form-control w-100"
+                        id=""
+                        placeholder="Adı ve Soyadı"
+                      />
+                      <label for="floatingInput">Adı ve Soyadı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="date"
+                        class="studentBorn form-control w-100"
+                        id=""
+                        placeholder="Doğum Tarihi"
+                      />
+                      <label for="floatingInput">Doğum Tarihi</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="studentVasi form-control w-100"
+                        id=""
+                        placeholder="Veli/Vasi Adı ve Soyadı"
+                      />
+                      <label for="floatingInput">Veli/Vasi Adı ve Soyadı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="studentSınıf form-control w-100"
+                        id=""
+                        placeholder="Sınıfı"
+                      />
+                      <label for="floatingInput">Sınıfı</label>
+                    </div>
+                    <div class="form-floating mb-3 w-100">
+                      <input
+                        type="date"
+                        class="studentKayıt form-control"
+                        id=""
+                        placeholder="Okula kayıt/nakil tarihi"
+                      />
+                      <label for="floatingInput"
+                        >Okula kayıt/nakil tarihi</label
+                      >
+                    </div>
+                    <div class="form-floating mb-3 w-100">
+                      <input
+                        type="text"
+                        class="studentAdres form-control"
+                        id=""
+                        placeholder="Ev Adresi"
+                      />
+                      <label for="floatingInput">Ev Adresi</label>
+                    </div>
+                  </div>
+                  <!-- Öğrenci Kayıt Bilgileri End -->
+
+                  <!-- Öğrencinin Anne Bilgileri Start -->
+                  <div class="mb-3 w-100 form-control">
+                    <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                      ÖĞRENCİNİN ANNE BİLGİLERİ
+                    </h1>
+
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="motherTc form-control"
+                        id=""
+                        placeholder="T.C. Kimlik No"
+                      />
+                      <label for="floatingInput">T.C. Kimlik No</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="motherName form-control"
+                        id=""
+                        placeholder="Adı ve Soyadı"
+                      />
+                      <label for="floatingInput">Adı ve Soyadı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="motherJob form-control"
+                        id=""
+                        placeholder="Mesleği"
+                      />
+                      <label for="floatingInput">Mesleği</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="motherTel form-control"
+                        id=""
+                        placeholder="Cep Telefonu"
+                      />
+                      <label for="floatingInput">Cep Telefonu</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="motherJobtel form-control"
+                        id=""
+                        placeholder="İş Telefonu"
+                      />
+                      <label for="floatingInput">İs Telefonu</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="motherAdres form-control"
+                        id=""
+                        placeholder="Ev Adresi"
+                      />
+                      <label for="floatingInput">Ev Adresi</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="email"
+                        class="motherEmail form-control"
+                        id=""
+                        placeholder="e-posta"
+                      />
+                      <label for="floatingInput">e-posta</label>
+                    </div>
+                  </div>
+
+                  <!-- Öğrencinin Anne Bilgileri End -->
+
+                  <!-- Öğrencinin Baba Bilgileri Start -->
+
+                  <div class="mb-3 w-100 form-control">
+                    <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                      ÖĞRENCİNİN BABA BİLGİLERİ
+                    </h1>
+
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="fatherTc form-control"
+                        id=""
+                        placeholder="T.C. Kimlik No"
+                      />
+                      <label for="floatingInput">T.C. Kimlik No</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="fatherName form-control"
+                        id=""
+                        placeholder="Adı ve Soyadı"
+                      />
+                      <label for="floatingInput">Adı ve Soyadı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="fatherJob form-control"
+                        id=""
+                        placeholder="Mesleği"
+                      />
+                      <label for="floatingInput">Mesleği</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="fatherTel form-control"
+                        id=""
+                        placeholder="Cep Telefonu"
+                      />
+                      <label for="floatingInput">Cep Telefonu</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="fatherJobtel form-control"
+                        id=""
+                        placeholder="İş Telefonu"
+                      />
+                      <label for="floatingInput">İs Telefonu</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="fatherAdres form-control"
+                        id=""
+                        placeholder="Ev Adresi"
+                      />
+                      <label for="floatingInput">Ev Adresi</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="email"
+                        class="fatherEmail form-control"
+                        id=""
+                        placeholder="e-posta"
+                      />
+                      <label for="floatingInput">e-posta</label>
+                    </div>
+                  </div>
+
+                  <!-- Öğrencinin Baba Bilgileri End -->
+
+                  <!-- Öğrencinin Vasi Bilgileri Start -->
+
+                  <div class="mb-3 w-100 form-control">
+                    <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                      ÖĞRENCİNİN VASİ BİLGİLERİ (VARSA)
+                    </h1>
+
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="vasiTc form-control"
+                        id=""
+                        placeholder="T.C. Kimlik No"
+                      />
+                      <label for="floatingInput">T.C. Kimlik No</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="vasiName form-control"
+                        id=""
+                        placeholder="Adı ve Soyadı"
+                      />
+                      <label for="floatingInput">Adı ve Soyadı</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="vasiJob form-control"
+                        id=""
+                        placeholder="Mesleği"
+                      />
+                      <label for="floatingInput">Mesleği</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="vasiTel form-control"
+                        id=""
+                        placeholder="Cep Telefonu"
+                      />
+                      <label for="floatingInput">Cep Telefonu</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="vasiJobtel form-control"
+                        id=""
+                        placeholder="İş Telefonu"
+                      />
+                      <label for="floatingInput">İs Telefonu</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="vasiAdres form-control"
+                        id=""
+                        placeholder="Ev Adresi"
+                      />
+                      <label for="floatingInput">Ev Adresi</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="email"
+                        class="vasiEmail form-control"
+                        id=""
+                        placeholder="e-posta"
+                      />
+                      <label for="floatingInput">e-posta</label>
+                    </div>
+                  </div>
+
+                  <!-- Öğrencinin Vasi Bilgileri End -->
+
+                  <!--  Ödeme Bilgileri Start -->
+                  <div class="mb-3 w-100 form-control">
+                    <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                      ÖDEME BİLGİLERİ
+                    </h1>
+
+                    <div class="form-control mb-3">
+                      <label class="text-start justify-content-around mb-2"
+                        >Ödeme Şekli</label
+                      >
+
+                      <div class="form-floating mb-3">
+                        <input
+                          type="text"
+                          class="paymentMethod form-control"
+                          id=""
+                          placeholder="Peşin Taksit"
+                        />
+                        <label for="floatingInput">Peşin/Taksit</label>
+                      </div>
+                    </div>
+
+                    
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="educationFee form-control"
+                        id=""
+                        placeholder="Eğitim Ücreti"
+                      />
+                      <label for="floatingInput">Eğitim Ücreti</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="date"
+                        class="paymentDay form-control"
+                        id=""
+                        placeholder="Ödeme Günü"
+                      />
+                      <label for="floatingInput">Ödeme Günü</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="explanation form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 300px"></textarea>
+                        <label for="floatingTextarea2">Açıklama</label>
+                      </div>
+                    
+                  </div>
+
+                  <!-- Ödeme Bilgiler End -->
+                </form>
+                <button
+                  type="submit"
+                  class="studentSave btn btn-primary w-100 text-center"
+                  data-bs-dismiss="modal"
+                >
+                  Kaydet
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Öğrenci Arama Start-->
+    <div class="justify-content-center">
+      <div class="input-group mb-3 w-50 m-auto">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Öğrenci Ara..."
+        />
+        <button class="btn btn-outline-secondary" type="button" id="">
+          Button
+        </button>
+      </div>
+    </div>
+    <!-- Öğrenci Arama End -->
+
+    <!-- Öğrenci listeleme Start -->
+    <div class="container d-flex gap-2">
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">ÖĞRENCİ ADI</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Detay</a>
+        </div>
+      </div>
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">ÖĞRENCİ ADI</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Detay</a>
+        </div>
+      </div>
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">ÖĞRENCİ ADI</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Detay</a>
+        </div>
+      </div>
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">ÖĞRENCİ ADI</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Detay</a>
+        </div>
+      </div>
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">ÖĞRENCİ ADI</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Detay</a>
+        </div>
+      </div>
+      <div class="card text-center mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">ÖĞRENCİ ADI</h5>
+          <p class="card-text">
+            With supporting text below as a natural lead-in to additional
+            content.
+          </p>
+          <a href="#" class="btn btn-primary">Detay</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Öğrenci listeleme End -->
+
+    <!--Bootstrap Js Link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
