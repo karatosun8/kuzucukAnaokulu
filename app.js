@@ -1,6 +1,7 @@
 //! selectors
 const studentSave = document.querySelector(".studentSave");
 const create = document.querySelector(".create");
+const studentData = document.querySelector(".studentData")
 
 // Student Data
 const studentTc = document.querySelector(".studentTc");
@@ -44,10 +45,49 @@ const paymentMethod = document.querySelector(".paymentMethod");
 const educationFee = document.querySelector(".educationFee");
 const paymentDay = document.querySelector(".paymentDay");
 const explanation = document.querySelector(".explanation");
+//Ekrana yazdırma için
+
+const headerStudentdata=document.querySelector(".headerStudentdata")
+const studentDatatc=document.querySelector(".studentDatatc")
+const studentVasiname=document.querySelector(".studentVasiname")
+const studentDatasınıf=document.querySelector(".studentDatasınıf")
+const studentDataborn=document.querySelector(".studentDataborn")
+const studentDataadres=document.querySelector(".studentDataadres")
+const studentDatakayıt=document.querySelector(".studentDatakayıt")
+const sstudentMothertc=document.querySelector(".studentMothertc")
+const studentMothername=document.querySelector(".studentMothername")
+const studentMotherjob=document.querySelector(".studentMotherjob")
+const studentMothertel=document.querySelector(".studentMothertel")
+const studentMotherjobtel=document.querySelector(".studentMotherjobtel")
+const studentMotheradres=document.querySelector(".studentMotheradres")
+const studentFathertc=document.querySelector(".studentFathertc")
+const studentFathername=document.querySelector(".studentFathername")
+const studentFatherjob=document.querySelector(".studentFatherjob")
+const studentFathertel=document.querySelector(".studentFathertel")
+const studentFatherjobtel=document.querySelector(".studentFatherjobtel")
+const studentFatheradres=document.querySelector(".studentFatheradres")
+const studentFatheremail=document.querySelector(".studentFatheremail")
+const studentVasitc=document.querySelector(".studentVasitc")
+const studentVasijob=document.querySelector(".studentVasijob")
+const studentVasitel=document.querySelector(".studentVasitel")
+const studentVasijobtel=document.querySelector(".studentVasijobtel")
+const studentVasiadres=document.querySelector(".studentVasiadres")
+const studentVasiemail=document.querySelector(".studentVasiemail")
+const studentPaymentmethod=document.querySelector(".studentPaymentmethod")
+const studentEducationfee=document.querySelector(".studentEducationfee")
+const studentPaymentday=document.querySelector(".studentPaymentday")
+const studentExplanation=document.querySelector(".studentExplanation")
+
+
+
+
 
 //! events
 
+
+
 studentSave.addEventListener("click", () => {
+  
   const newCreateStudent = document.createElement("div");
 
   newCreateStudent.classList.add("card");
@@ -55,7 +95,7 @@ studentSave.addEventListener("click", () => {
   newCreateStudent.setAttribute("style", "width:18rem");
   newCreateStudent.innerHTML = `
   
-          <div class="card-body">
+          <div class="cardDelete card-body">
             <div>
               <h5 class="card-title">ÖĞRENCİ ADI</h5>
               <p>${studentName.value}</p>
@@ -67,318 +107,49 @@ studentSave.addEventListener("click", () => {
             <h5 class="card-title">AÇIKLAMA</h5>
             <p class="card-text">
             ${explanation.value}
-            </p>
-
-            
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Detay</button>
-
-            <div class="offcanvas offcanvas-top " style="height: 800px" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-              <div class="offcanvas-header ">
-                <h2 class="offcanvas-title " id="offcanvasTopLabel"></h2>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-
-              
-              // Öğrenci Bilgileri Detaylı
-
-              <div class="container d-flex gap-2 justify-content-center ">
-              <div class="row">
-              <h1> ${studentName.value}</h1>
-              <div class="col-6 ">
-
-              <table class="table" >               
-                   <tbody>
-
-                   <tr class="table-active">
-                   <th scope="row">T.C. Kimlik No    :</th>
-                   <td class="table-active">${studentTc.value}</td>
-                   </tr> 
-
-                   <tr class="table-active">
-                   <th scope="row">Veli/Vasi Adı    :</th>
-                   <td class="table-active">${vasiName.value}</td>
-                   </tr>                                                                         
-                                           
-                    <tr class="table-active">
-                    <th scope="row">Sınıfı    :</th>
-                    <td class="table-active">${studentSınıf.value}</td>
-                    </tr>   
-
-                    </tbody>
-               </table>
-
-               </div>
-
-
-              <div class="col-6 ">
-              <table class="table" >
-                  <tbody class="">
-
-                  <tr class="table-active">
-                  <th scope="row">Doğum Tarihi    :</th>
-                  <td class="table-active">${studentBorn.value}</td>
-                  </tr>       
-
-                  <tr class="table-active">
-                  <th scope="row">Adres   :</th>
-                  <td class="table-active">${studentAdres.value}</td>
-                  </tr> 
-
-                  <tr class="table-active">                     
-                  <th scope="row">Kayıt Tarihi    :</th>
-                  <td class="table-active">${studentKayıt.value}</td>                        
-                  </tr>  
-
-                  </tbody>
-               </table>
-
-               </div>
-              
-              
-               </div>
-               </div>
-
-
-               //Annesinin Bilgiler 
-
-
-              <div class="container d-flex gap-2 justify-content-center">
-              <div class="row">
-              <h1> Annesinin Bilgileri</h1>
-              <div class="col-6 ">
-
-              <table class="table" >               
-                   <tbody>
-
-                   <tr class="table-active">
-                   <th scope="row">T.C. Kimlik No    :</th>
-                   <td class="table-active">${motherTc.value}</td>
-                   </tr> 
-
-                   <tr class="table-active">
-                   <th scope="row">Adı Soyadı    :</th>
-                   <td class="table-active">${motherName.value}</td>
-                   </tr>                                                                         
-                                           
-                    <tr class="table-active">
-                    <th scope="row">Mesleği    :</th>
-                    <td class="table-active">${motherJob.value}</td>
-                    </tr>   
-
-                    <tr class="table-active">
-                    <th scope="row">Cep Telefonu    :</th>
-                    <td class="table-active">${motherTel.value}</td>
-                    </tr>   
-
-                    </tbody>
-               </table>
-
-               </div>
-
-
-              <div class="col-6 ">
-              <table class="table" >
-                  <tbody class="">
-
-                  <tr class="table-active">
-                  <th scope="row">İş Telefonu    :</th>
-                  <td class="table-active">${motherJobTel.value}</td>
-                  </tr>       
-
-                  <tr class="table-active">
-                  <th scope="row">Adres   :</th>
-                  <td class="table-active">${motherAdres.value}</td>
-                  </tr> 
-
-                  <tr class="table-active">                     
-                  <th scope="row">Email    :</th>
-                  <td class="table-active">${motherEmail.value}</td>                        
-                  </tr>  
-
-                  </tbody>
-               </table>
-
-               </div>
-              
-              
-               </div>
-               </div>
-
-
-               //Babasının Bilgiler 
-
-              <div class="container d-flex gap-2 justify-content-center">
-              <div class="row">
-              <h1> Babasının Bilgileri</h1>
-              <div class="col-6 ">
-
-              <table class="table" >               
-                   <tbody>
-
-                   <tr class="table-active">
-                   <th scope="row">T.C. Kimlik No    :</th>
-                   <td class="table-active">${fatherTc.value}</td>
-                   </tr> 
-
-                   <tr class="table-active">
-                   <th scope="row">Adı Soyadı    :</th>
-                   <td class="table-active">${fatherName.value}</td>
-                   </tr>                                                                         
-                                           
-                    <tr class="table-active">
-                    <th scope="row">Mesleği    :</th>
-                    <td class="table-active">${fatherJob.value}</td>
-                    </tr>   
-
-                    <tr class="table-active">
-                    <th scope="row">Cep Telefonu    :</th>
-                    <td class="table-active">${fatherTel.value}</td>
-                    </tr>   
-
-                    </tbody>
-               </table>
-
-               </div>
-
-
-              <div class="col-6 ">
-              <table class="table" >
-                  <tbody class="">
-
-                  <tr class="table-active">
-                  <th scope="row">İş Telefonu    :</th>
-                  <td class="table-active">${fatherJobTel.value}</td>
-                  </tr>       
-
-                  <tr class="table-active">
-                  <th scope="row">Adres   :</th>
-                  <td class="table-active">${fatherAdres.value}</td>
-                  </tr> 
-
-                  <tr class="table-active">                     
-                  <th scope="row">Email    :</th>
-                  <td class="table-active">${fatherEmail.value}</td>                        
-                  </tr>  
-
-                  </tbody>
-               </table>
-
-               </div>
-              
-              
-               </div>
-               </div>
-
-
-               //Öğrencinin Vasi Bilgileri 
-
-
-              <div class="container d-flex gap-2 justify-content-center">
-              <div class="row">
-              <h1> Öğrencinin Vasi Bilgileri</h1>
-              <div class="col-6 ">
-
-              <table class="table" >               
-                   <tbody>
-
-                   <tr class="table-active">
-                   <th scope="row">T.C. Kimlik No    :</th>
-                   <td class="table-active">${vasiTc.value}</td>
-                   </tr> 
-
-                   <tr class="table-active">
-                   <th scope="row">Adı Soyadı    :</th>
-                   <td class="table-active">${vasiName.value}</td>
-                   </tr>                                                                         
-                                           
-                    <tr class="table-active">
-                    <th scope="row">Mesleği    :</th>
-                    <td class="table-active">${vasiJob.value}</td>
-                    </tr>   
-
-                    <tr class="table-active">
-                    <th scope="row">Cep Telefonu    :</th>
-                    <td class="table-active">${vasiTel.value}</td>
-                    </tr>   
-
-                    </tbody>
-               </table>
-
-               </div>
-
-
-              <div class="col-6 ">
-              <table class="table" >
-                  <tbody class="">
-
-                  <tr class="table-active">
-                  <th scope="row">İş Telefonu    :</th>
-                  <td class="table-active">${vasiJobTel.value}</td>
-                  </tr>       
-
-                  <tr class="table-active">
-                  <th scope="row">Adres   :</th>
-                  <td class="table-active">${vasiAdres.value}</td>
-                  </tr> 
-
-                  <tr class="table-active">                     
-                  <th scope="row">Email    :</th>
-                  <td class="table-active">${vasiEmail.value}</td>                        
-                  </tr>  
-
-                  </tbody>
-               </table>
-
-               </div>    
-              
-
-               </div>
-               </div>
-
-
-               //Ödeme Bilgileri
-
-
-              <div class="container d-flex gap-2 justify-content-center">
-              <div class="row">
-              <h1> Ödeme Bilgileri</h1>
-              <div class="col-6 ">
-
-              <table class="table" >               
-                   <tbody>
-
-                   <tr class="table-active">
-                   <th scope="row">Ödeme Şekli    :</th>
-                   <td class="table-active">${paymentMethod.value}</td>
-                   </tr> 
-
-                   <tr class="table-active">
-                   <th scope="row">Eğitim Ücreti    :</th>
-                   <td class="table-active">${educationFee.value}</td>
-                   </tr>                                                                         
-                                           
-                    <tr class="table-active">
-                    <th scope="row">Açıklama    :</th>
-                    <td class="table-active">${explanation.value}</td>
-                    </tr>                     
-
-                    </tbody>
-               </table>
-
-               </div>
-
-
-               </div>
-               </div>
-                    
-
-              </div>
-            </div>
+            </p>        
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Detay</button>           
             
           </div>
 
     `;
+
+    headerStudentdata.textContent = `${studentName.value}`
+    studentDatatc.textContent=`${studentTc.value}`
+    studentVasiname.textContent=`${studentVasi.value}`
+    studentDatasınıf.textContent=`${studentSınıf.value}`
+    studentDataborn.textContent=`${studentBorn.value}`
+    studentDataadres.textContent=`${studentAdres.value}`
+    studentDatakayıt.textContent=`${studentKayıt.value}`
+    sstudentMothertc.textContent=`${motherTc.value}`
+    studentMothername.textContent=`${motherName.value}`
+    studentMotherjob.textContent=`${motherJob.value}`
+    studentMothertel.textContent=`${motherTel.value}`
+    studentMotherjobtel.textContent=`${motherJobTel.value}`
+    studentMotheradres.textContent=`${motherAdres.value}`
+    studentFathertc.textContent=`${fatherTc.value}`
+    studentFathername.textContent=`${fatherName.value}`
+    studentFatherjob.textContent=`${fatherJob.value}`
+    studentFathertel.textContent=`${fatherTel.value}`
+    studentFatherjobtel.textContent=`${fatherJobTel.value}`
+    studentFatheradres.textContent=`${fatherAdres.value}`
+    studentFatheremail.textContent=`${fatherEmail.value}`
+    studentVasitc.textContent=`${vasiTc.value}`
+    studentVasiname.textContent=`${vasiName.value}`
+    studentVasijob.textContent=`${studentVasijob}`
+    studentVasitel.textContent=`${studentVasitel}`
+    studentVasijobtel.textContent=`${studentVasijobtel}`
+    studentVasiadres.textContent=`${studentVasiadres}`
+    studentVasiemail.textContent=`${studentVasiemail}`
+    studentPaymentmethod.textContent=`${paymentMethod}`
+    studentEducationfee.textContent=`${educationFee}`
+    studentPaymentday.textContent=`${paymentDay}`
+    studentExplanation.textContent=`${explanation}`
+    
+    
+    
+   
+    
   {
     /* <div class="card d-flex text-center mb-3" style="width: 18rem"></div> */
   }
@@ -465,4 +236,34 @@ studentSave.addEventListener("click", () => {
   console.log(educationFee.value);
   console.log(paymentDay.value);
   console.log(explanation.value);
+
+  //Delete
+  console.log(studentData);
+ 
 });
+
+studentData.addEventListener("click",deleteCheck)
+
+//Listedeki elemanı silmek için
+const cardDelete=document.querySelector(".cardDelete")
+//!function
+
+function deleteCheck(e){
+  const item =e.target;
+  
+  if(item.classList[0] === "delete"){
+    
+    const todo =item.parentElement.parentElement;
+    todo.remove();
+    const offcanvas=document.querySelector(".offcanvas")
+    offcanvas.remove()
+    //lListeden Detaylı elemanı silmek için
+    // create.remove()
+  }
+  if(item.classList[0] ==="delete"){
+    const cardDelete=document.querySelector(".cardDelete")
+    cardDelete.parentElement.remove()
+  }
+  
+
+}
