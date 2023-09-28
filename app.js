@@ -54,6 +54,8 @@ let studentList = []
 let getStudentList;
 let nameStudentListDOM = document.querySelector("#nameStudentList");
 
+
+//Veri kaydettikten sonra aktifleştir
 Read()
 
 function Read (){
@@ -539,7 +541,7 @@ function Create(){
 
 studentSave.addEventListener("click",()=>{
 
-  
+    
     Create()
 
     Read()
@@ -552,6 +554,7 @@ studentBorn.value = "";
 studentSınıf.value = "";
 studentKayıt.value = "";
 studentAdres.value = "";
+studentVeli.value = "";
 
 motherTc.value = "";
 motherName.value = "";
@@ -661,7 +664,7 @@ function Detay(i){
                      </div>
             
             
-                     //Annesinin Bilgiler 
+                      
             
             
                     <div class="container d-flex gap-2 justify-content-center">
@@ -727,7 +730,7 @@ function Detay(i){
                      </div>
             
             
-                     //Babasının Bilgiler 
+                      
             
                     <div class="container d-flex gap-2 justify-content-center">
                     <div class="row">
@@ -792,7 +795,7 @@ function Detay(i){
                      </div>
             
             
-                     //Öğrencinin Vasi Bilgileri 
+                     
             
             
                     <div class="container d-flex gap-2 justify-content-center">
@@ -858,13 +861,13 @@ function Detay(i){
                      </div>
             
             
-                     //Ödeme Bilgileri
+                     
             
             
                     <div class="container d-flex gap-2 justify-content-center " >
                     <div class="row">
                     <h1> Ödeme Bilgileri</h1>
-                    <div class="col-6 ">
+                    <div class="col-12 ">
             
                     <table class="table card-title" >               
                          <tbody>
@@ -887,7 +890,7 @@ function Detay(i){
                                                  
                           <tr class="table-active">
                           <th scope="row">Açıklama    :</th>
-                          <td class="studentExplanation table-active">${getStudentList[i].payment.explanation}</td>
+                          <td class="studentExplanation table-active" style="max-width: 600px;">${getStudentList[i].payment.explanation}</td>
                           </tr>                     
             
                           </tbody>
@@ -899,7 +902,7 @@ function Detay(i){
                      </div>
                      </div>
             
-                     //Buton
+                     
             
                      <div class="grid d-md-block">
                         <button class="btn btn-success m-5" type="button" onClick="Edit(${i})">Güncelle</button>
@@ -911,19 +914,426 @@ function Detay(i){
     
 }
 
-// function Edit(item){
-//     let editStudentList = JSON.parse(localStorage.getItem("studentList"));
-//     nameStudentListDOM.innerHTML ="";
-//     for (let i =0;i <editStudentList.length; i++){
-//         if(i == item ){
-//             console.log(i);
-//             nameStudentListDOM.innerHTML +=`
-               
-//             `
-//         }
-//     }
+function Edit(item){
+    // let editStudentList = JSON.parse(localStorage.getItem("studentList"));
+    // nameStudentListDOM.innerHTML ="";
+    let  editStudentList = JSON.parse(localStorage.getItem("studentList"));
+    const detayEkle =document.querySelector(".detayEkle")
+    for (let i =0;i <editStudentList.length; i++){
+        if(i == item ){
+            // console.log(i);
+            
+    console.log(editStudentList[i].student.studentName);
 
-// }
+    detayEkle.innerHTML = `
+    <div class="modal-dialog" style="margin-left: 350px">
+    <div
+      class="modal-content d-flex justify-content-start"
+      style="width: 1000px"
+    >
+      <div>
+        <div class="modal-header text-center bg-body-secondary">
+          <h1 class="modal-title fs-5 justify-content-center" id="">ÖĞRENCİ VERİ GÜNCELLEME</h1>
+          
+        </div>
+        <div class="modal-body bg-body-secondary">
+          <!-- Öğrenci Kayıt Bilgileri Start -->
+          <form class="d-flex gap-4 ">
+            <div class="mb-3 form-control ">
+              <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                ÖĞRENCİ BİLGİLERİ
+              </h1>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="studentTc form-control w-100"
+                  id=""
+                  placeholder="T.C. Kimlik No"
+                  value="${editStudentList[i].student.studentTc}"
+                />
+                <label for="floatingInput">T.C. Kimlik No</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="studentName form-control w-100"
+                  id=""
+                  placeholder="Adı ve Soyadı"
+                  value="${editStudentList[i].student.studentName}"
+                />
+                <label for="floatingInput">Adı ve Soyadı</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="studentBorn form-control w-100"
+                  id=""
+                  placeholder="Doğum Tarihi"
+                  value="${editStudentList[i].student.studentBorn}"
+                />
+                <label for="floatingInput">Doğum Tarihi</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="studentVeli form-control w-100"
+                  id=""
+                  placeholder="Veli/Vasi Adı ve Soyadı"
+                  value="${editStudentList[i].student.studentVeli}"
+                />
+                <label for="floatingInput">Veli/Vasi Adı ve Soyadı</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="studentSınıf form-control w-100"
+                  id=""
+                  placeholder="Sınıfı"
+                  value="${editStudentList[i].student.studentSınıf}"
+                />
+                <label for="floatingInput">Sınıfı</label>
+              </div>
+              <div class="form-floating mb-3 w-100">
+                <input
+                  type="date"
+                  class="studentKayıt form-control"
+                  id=""
+                  placeholder="Okula kayıt/nakil tarihi"
+                  value="${editStudentList[i].student.studentKayıt}"
+                />
+                <label for="floatingInput"
+                  >Okula kayıt/nakil tarihi</label
+                >
+              </div>
+              <div class="form-floating mb-3 w-100">
+                <input
+                  type="text"
+                  class="studentAdres form-control"
+                  id=""
+                  placeholder="Ev Adresi"
+                  value="${editStudentList[i].student.studentAdres}"
+                />
+                <label for="floatingInput">Ev Adresi</label>
+              </div>
+            </div>
+            <!-- Öğrenci Kayıt Bilgileri End -->
+
+            <!-- Öğrencinin Anne Bilgileri Start -->
+            <div class="mb-3 w-100 form-control">
+              <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                ÖĞRENCİNİN ANNE BİLGİLERİ
+              </h1>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="motherTc form-control"
+                  id=""
+                  placeholder="T.C. Kimlik No"
+                  value="${editStudentList[i].mother.motherTc}"
+                />
+                <label for="floatingInput">T.C. Kimlik No</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="motherName form-control"
+                  id=""
+                  placeholder="Adı ve Soyadı"
+                  value="${editStudentList[i].mother.motherName}"
+                />
+                <label for="floatingInput">Adı ve Soyadı</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="motherJob form-control"
+                  id=""
+                  placeholder="Mesleği"
+                  value="${editStudentList[i].mother.motherJob}"
+                />
+                <label for="floatingInput">Mesleği</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="motherTel form-control"
+                  id=""
+                  placeholder="Cep Telefonu"
+                  value="${editStudentList[i].mother.motherTel}"
+                />
+                <label for="floatingInput">Cep Telefonu</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="motherJobtel form-control"
+                  id=""
+                  placeholder="İş Telefonu"
+                  value="${editStudentList[i].mother.motherJobTel}"
+                />
+                <label for="floatingInput">İs Telefonu</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="motherAdres form-control"
+                  id=""
+                  placeholder="Ev Adresi"
+                  value="${editStudentList[i].mother.motherAdres}"
+                />
+                <label for="floatingInput">Ev Adresi</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="motherEmail form-control"
+                  id=""
+                  placeholder="e-posta"
+                  value="${editStudentList[i].mother.motherEmail}"
+                />
+                <label for="floatingInput">e-posta</label>
+              </div>
+            </div>
+
+            <!-- Öğrencinin Anne Bilgileri End -->
+
+            <!-- Öğrencinin Baba Bilgileri Start -->
+
+            <div class="mb-3 w-100 form-control">
+              <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                ÖĞRENCİNİN BABA BİLGİLERİ
+              </h1>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="fatherTc form-control"
+                  id=""
+                  placeholder="T.C. Kimlik No"
+                  value="${editStudentList[i].father.fatherTc}"
+                />
+                <label for="floatingInput">T.C. Kimlik No</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="fatherName form-control"
+                  id=""
+                  placeholder="Adı ve Soyadı"
+                  value="${editStudentList[i].father.fatherName}"
+                />
+                <label for="floatingInput">Adı ve Soyadı</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="fatherJob form-control"
+                  id=""
+                  placeholder="Mesleği"
+                  value="${editStudentList[i].father.fatherJob}"
+                />
+                <label for="floatingInput">Mesleği</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="fatherTel form-control"
+                  id=""
+                  placeholder="Cep Telefonu"
+                  value="${editStudentList[i].father.fatherTel}"
+                />
+                <label for="floatingInput">Cep Telefonu</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="fatherJobtel form-control"
+                  id=""
+                  placeholder="İş Telefonu"
+                  value="${editStudentList[i].father.fatherJobTel}"
+                />
+                <label for="floatingInput">İs Telefonu</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="fatherAdres form-control"
+                  id=""
+                  placeholder="Ev Adresi"
+                  value="${editStudentList[i].father.fatherAdres}"
+                />
+                <label for="floatingInput">Ev Adresi</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="fatherEmail form-control"
+                  id=""
+                  placeholder="e-posta"
+                  value="${editStudentList[i].father.fatherEmail}"
+                />
+                <label for="floatingInput">e-posta</label>
+              </div>
+            </div>
+
+            <!-- Öğrencinin Baba Bilgileri End -->
+
+            <!-- Öğrencinin Vasi Bilgileri Start -->
+
+            <div class="mb-3 w-100 form-control">
+              <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                ÖĞRENCİNİN VASİ BİLGİLERİ (VARSA)
+              </h1>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="vasiTc form-control"
+                  id=""
+                  placeholder="T.C. Kimlik No"
+                  value="${editStudentList[i].vasi.vasiTc}"
+                />
+                <label for="floatingInput">T.C. Kimlik No</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="vasiName form-control"
+                  id=""
+                  placeholder="Adı ve Soyadı"
+                  value="${editStudentList[i].vasi.vasiName}"
+                />
+                <label for="floatingInput">Adı ve Soyadı</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="vasiJob form-control"
+                  id=""
+                  placeholder="Mesleği"
+                  value="${editStudentList[i].vasi.vasiJob}"
+                />
+                <label for="floatingInput">Mesleği</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="vasiTel form-control"
+                  id=""
+                  placeholder="Cep Telefonu"
+                  value="${editStudentList[i].vasi.vasiTel}"
+                />
+                <label for="floatingInput">Cep Telefonu</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="vasiJobtel form-control"
+                  id=""
+                  placeholder="İş Telefonu"
+                  value="${editStudentList[i].vasi.vasiJobTel}"
+                />
+                <label for="floatingInput">İs Telefonu</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="vasiAdres form-control"
+                  id=""
+                  placeholder="Ev Adresi"
+                  value="${editStudentList[i].vasi.vasiAdres}"
+                />
+                <label for="floatingInput">Ev Adresi</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="vasiEmail form-control"
+                  id=""
+                  placeholder="e-posta"
+                  value="${editStudentList[i].vasi.vasiEmail}"
+                />
+                <label for="floatingInput">e-posta</label>
+              </div>
+            </div>
+
+            <!-- Öğrencinin Vasi Bilgileri End -->
+
+            <!--  Ödeme Bilgileri Start -->
+            <div class="mb-3 w-100 form-control">
+              <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
+                ÖDEME BİLGİLERİ
+              </h1>
+
+              <div class="form-control mb-3">
+                <label class="text-start justify-content-around mb-2"
+                  >Ödeme Şekli</label
+                >
+
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="paymentMethod form-control"
+                    id=""
+                    placeholder="Peşin Taksit"
+                    value="${editStudentList[i].payment.paymentMethod}"
+                  />
+                  <label for="floatingInput">Peşin/Taksit</label>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="educationFee form-control"
+                  id=""
+                  placeholder="Eğitim Ücreti"
+                  value="${editStudentList[i].payment.educationFee}"
+                />
+                <label for="floatingInput">Eğitim Ücreti</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="paymentDay form-control"
+                  id=""
+                  placeholder="Ödeme Günü"
+                  value="${editStudentList[i].payment.paymentDay}"
+                />
+                <label for="floatingInput">Ödeme Günü</label>
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="explanation form-control"
+                  placeholder="Leave a comment here"
+                  id="floatingTextarea2"
+                  style="height: 300px"
+                >${editStudentList[i].payment.explanation}</textarea>
+                <label for="floatingTextarea2">Açıklama</label>
+              </div>
+            </div>
+
+            <!-- Ödeme Bilgiler End -->
+          </form>
+          <button
+            type="submit"
+            class="studentSave btn btn-primary w-100 text-center"
+            data-bs-dismiss="modal"
+          >
+            Güncellemeyi Kaydet
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+          
+    `
+
+        }
+    }
+
+}
 
 
 
