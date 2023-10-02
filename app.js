@@ -1,6 +1,8 @@
 //! selectors
 const studentSave = document.querySelector(".studentSave");
 const create = document.querySelector(".create");
+const search = document.querySelector(".search input")
+
 
 
 
@@ -51,8 +53,10 @@ const explanation = document.querySelector(".explanation");
 
 
 let studentList = []
-let getStudentList;
+let getStudentList ;
 let nameStudentListDOM = document.querySelector("#nameStudentList");
+
+
 
 
 //Veri kaydettikten sonra aktifleştir
@@ -75,7 +79,7 @@ function Read (){
                 newCreateStudent.setAttribute("style", "width:18rem");
                 newCreateStudent.innerHTML += `
                 
-                        <div class="cardDelete card-body">
+                        <div class="cardDelete card-body" style="max-height: 300px; overflow-y:auto">
                           <div>
                             <h5 class="card-title">ÖĞRENCİ ADI</h5>
                             <p>${getStudentList[i].student.studentName}</p>
@@ -585,8 +589,6 @@ educationFee.value = "";
 paymentDay.value = "";
 explanation.value = "";
 
-
-
     
 })
 
@@ -915,20 +917,19 @@ function Detay(i){
 }
 
 function Edit(item){
-    // let editStudentList = JSON.parse(localStorage.getItem("studentList"));
-    // nameStudentListDOM.innerHTML ="";
+    
     let  editStudentList = JSON.parse(localStorage.getItem("studentList"));
     const detayEkle =document.querySelector(".detayEkle")
     for (let i =0;i <editStudentList.length; i++){
         if(i == item ){
-            // console.log(i);
+           
             
     console.log(editStudentList[i].student.studentName);
 
     detayEkle.innerHTML = `
-    <div class="modal-dialog" style="margin-left: 350px">
+    <div class="modal-dialog " style="margin: auto">
     <div
-      class="modal-content d-flex justify-content-start"
+      class="modal-content d-flex justify-content-start "
       style="width: 1000px"
     >
       <div>
@@ -947,7 +948,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="studentTc form-control w-100"
-                  id=""
+                  id="editStudentTc"
                   placeholder="T.C. Kimlik No"
                   value="${editStudentList[i].student.studentTc}"
                 />
@@ -957,7 +958,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="studentName form-control w-100"
-                  id=""
+                  id="editStudentName"
                   placeholder="Adı ve Soyadı"
                   value="${editStudentList[i].student.studentName}"
                 />
@@ -967,7 +968,7 @@ function Edit(item){
                 <input
                   type="date"
                   class="studentBorn form-control w-100"
-                  id=""
+                  id="editStudentBorn"
                   placeholder="Doğum Tarihi"
                   value="${editStudentList[i].student.studentBorn}"
                 />
@@ -977,7 +978,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="studentVeli form-control w-100"
-                  id=""
+                  id="editStudentVeli"
                   placeholder="Veli/Vasi Adı ve Soyadı"
                   value="${editStudentList[i].student.studentVeli}"
                 />
@@ -987,7 +988,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="studentSınıf form-control w-100"
-                  id=""
+                  id="editStudentSınıf"
                   placeholder="Sınıfı"
                   value="${editStudentList[i].student.studentSınıf}"
                 />
@@ -997,7 +998,7 @@ function Edit(item){
                 <input
                   type="date"
                   class="studentKayıt form-control"
-                  id=""
+                  id="editStudentKayıt"
                   placeholder="Okula kayıt/nakil tarihi"
                   value="${editStudentList[i].student.studentKayıt}"
                 />
@@ -1009,7 +1010,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="studentAdres form-control"
-                  id=""
+                  id="editStudentAdres"
                   placeholder="Ev Adresi"
                   value="${editStudentList[i].student.studentAdres}"
                 />
@@ -1028,7 +1029,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="motherTc form-control"
-                  id=""
+                  id="editMotherTc"
                   placeholder="T.C. Kimlik No"
                   value="${editStudentList[i].mother.motherTc}"
                 />
@@ -1038,7 +1039,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="motherName form-control"
-                  id=""
+                  id="editMotherName"
                   placeholder="Adı ve Soyadı"
                   value="${editStudentList[i].mother.motherName}"
                 />
@@ -1048,7 +1049,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="motherJob form-control"
-                  id=""
+                  id="editMotherJob"
                   placeholder="Mesleği"
                   value="${editStudentList[i].mother.motherJob}"
                 />
@@ -1058,7 +1059,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="motherTel form-control"
-                  id=""
+                  id="editMotherTel"
                   placeholder="Cep Telefonu"
                   value="${editStudentList[i].mother.motherTel}"
                 />
@@ -1068,7 +1069,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="motherJobtel form-control"
-                  id=""
+                  id="editMotherJobTel"
                   placeholder="İş Telefonu"
                   value="${editStudentList[i].mother.motherJobTel}"
                 />
@@ -1078,7 +1079,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="motherAdres form-control"
-                  id=""
+                  id="editMotherAdres"
                   placeholder="Ev Adresi"
                   value="${editStudentList[i].mother.motherAdres}"
                 />
@@ -1088,7 +1089,7 @@ function Edit(item){
                 <input
                   type="email"
                   class="motherEmail form-control"
-                  id=""
+                  id="editMotherEmail"
                   placeholder="e-posta"
                   value="${editStudentList[i].mother.motherEmail}"
                 />
@@ -1109,7 +1110,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="fatherTc form-control"
-                  id=""
+                  id="editFatherTc"
                   placeholder="T.C. Kimlik No"
                   value="${editStudentList[i].father.fatherTc}"
                 />
@@ -1119,7 +1120,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="fatherName form-control"
-                  id=""
+                  id="editFatherName"
                   placeholder="Adı ve Soyadı"
                   value="${editStudentList[i].father.fatherName}"
                 />
@@ -1129,7 +1130,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="fatherJob form-control"
-                  id=""
+                  id="editFatherJob"
                   placeholder="Mesleği"
                   value="${editStudentList[i].father.fatherJob}"
                 />
@@ -1139,7 +1140,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="fatherTel form-control"
-                  id=""
+                  id="editFatherTel"
                   placeholder="Cep Telefonu"
                   value="${editStudentList[i].father.fatherTel}"
                 />
@@ -1149,7 +1150,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="fatherJobtel form-control"
-                  id=""
+                  id="editFatherJobTel"
                   placeholder="İş Telefonu"
                   value="${editStudentList[i].father.fatherJobTel}"
                 />
@@ -1159,7 +1160,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="fatherAdres form-control"
-                  id=""
+                  id="editFatherAdres"
                   placeholder="Ev Adresi"
                   value="${editStudentList[i].father.fatherAdres}"
                 />
@@ -1169,7 +1170,7 @@ function Edit(item){
                 <input
                   type="email"
                   class="fatherEmail form-control"
-                  id=""
+                  id="editFatherEmail"
                   placeholder="e-posta"
                   value="${editStudentList[i].father.fatherEmail}"
                 />
@@ -1190,7 +1191,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="vasiTc form-control"
-                  id=""
+                  id="editVasiTc"
                   placeholder="T.C. Kimlik No"
                   value="${editStudentList[i].vasi.vasiTc}"
                 />
@@ -1200,7 +1201,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="vasiName form-control"
-                  id=""
+                  id="editVasiName"
                   placeholder="Adı ve Soyadı"
                   value="${editStudentList[i].vasi.vasiName}"
                 />
@@ -1210,7 +1211,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="vasiJob form-control"
-                  id=""
+                  id="editVasiJob"
                   placeholder="Mesleği"
                   value="${editStudentList[i].vasi.vasiJob}"
                 />
@@ -1220,7 +1221,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="vasiTel form-control"
-                  id=""
+                  id="editVasiTel"
                   placeholder="Cep Telefonu"
                   value="${editStudentList[i].vasi.vasiTel}"
                 />
@@ -1230,7 +1231,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="vasiJobtel form-control"
-                  id=""
+                  id="editVasiJobTel"
                   placeholder="İş Telefonu"
                   value="${editStudentList[i].vasi.vasiJobTel}"
                 />
@@ -1240,7 +1241,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="vasiAdres form-control"
-                  id=""
+                  id="editVasiAdres"
                   placeholder="Ev Adresi"
                   value="${editStudentList[i].vasi.vasiAdres}"
                 />
@@ -1250,7 +1251,7 @@ function Edit(item){
                 <input
                   type="email"
                   class="vasiEmail form-control"
-                  id=""
+                  id="editVasiEmail"
                   placeholder="e-posta"
                   value="${editStudentList[i].vasi.vasiEmail}"
                 />
@@ -1275,7 +1276,7 @@ function Edit(item){
                   <input
                     type="text"
                     class="paymentMethod form-control"
-                    id=""
+                    id="editPaymentMethod"
                     placeholder="Peşin Taksit"
                     value="${editStudentList[i].payment.paymentMethod}"
                   />
@@ -1287,7 +1288,7 @@ function Edit(item){
                 <input
                   type="text"
                   class="educationFee form-control"
-                  id=""
+                  id="editPaymentEducationFee"
                   placeholder="Eğitim Ücreti"
                   value="${editStudentList[i].payment.educationFee}"
                 />
@@ -1297,7 +1298,7 @@ function Edit(item){
                 <input
                   type="date"
                   class="paymentDay form-control"
-                  id=""
+                  id="editPaymentDay"
                   placeholder="Ödeme Günü"
                   value="${editStudentList[i].payment.paymentDay}"
                 />
@@ -1307,7 +1308,7 @@ function Edit(item){
                 <textarea
                   class="explanation form-control"
                   placeholder="Leave a comment here"
-                  id="floatingTextarea2"
+                  id="editExplanation"
                   style="height: 300px"
                 >${editStudentList[i].payment.explanation}</textarea>
                 <label for="floatingTextarea2">Açıklama</label>
@@ -1318,8 +1319,9 @@ function Edit(item){
           </form>
           <button
             type="submit"
-            class="studentSave btn btn-primary w-100 text-center"
+            class=" btn btn-success w-100 text-center"
             data-bs-dismiss="modal"
+            onclick="Update(${i})"
           >
             Güncellemeyi Kaydet
           </button>
@@ -1331,9 +1333,807 @@ function Edit(item){
     `
 
         }
+
+        
+        
+        
     }
+ 
 
 }
 
+
+function Update(item){
+ 
+  
+  const updateStudentsData = JSON.parse(localStorage.getItem("studentList"));
+  console.log(updateStudentsData);
+  updateStudentsData[item]= {
+    
+          student: {
+            studentTc: document.getElementById("editStudentTc").value,
+            studentName: document.getElementById("editStudentName").value,
+            studentBorn: document.getElementById("editStudentBorn").value,
+            studentVeli: document.getElementById("editStudentVeli").value,
+            studentSınıf: document.getElementById("editStudentSınıf").value,
+            studentKayıt: document.getElementById("editStudentKayıt").value,
+            studentAdres: document.getElementById("editStudentAdres").value
+          },
+          mother: {
+            motherTc: document.getElementById("editMotherTc").value,
+            motherName: document.getElementById("editMotherName").value,
+            motherJob: document.getElementById("editMotherJob").value,
+            motherTel: document.getElementById("editMotherTel").value,
+            motherJobTel: document.getElementById("editMotherJobTel").value,
+            motherAdres: document.getElementById("editMotherAdres").value,
+            motherEmail: document.getElementById("editMotherEmail").value
+          },
+          father: {
+            fatherTc: document.getElementById("editFatherTc").value,
+            fatherName: document.getElementById("editFatherName").value,
+            fatherJob: document.getElementById("editFatherJob").value,
+            fatherTel: document.getElementById("editFatherTel").value,
+            fatherJobTel: document.getElementById("editFatherJobTel").value,
+            fatherAdres: document.getElementById("editFatherAdres").value,
+            fatherEmail: document.getElementById("editFatherEmail").value
+          },
+          vasi: {
+            vasiTc: document.getElementById("editVasiTc").value,
+            vasiName: document.getElementById("editVasiName").value,
+            vasiJob: document.getElementById("editVasiJob").value,
+            vasiTel: document.getElementById("editVasiTel").value,
+            vasiJobTel: document.getElementById("editVasiJobTel").value,
+            vasiAdres: document.getElementById("editVasiAdres").value,
+            vasiEmail: document.getElementById("editVasiEmail").value
+          },
+          payment: {
+            paymentMethod: document.getElementById("editPaymentMethod").value,
+            educationFee: document.getElementById("editPaymentEducationFee").value,
+            paymentDay: document.getElementById("editPaymentDay").value,
+            explanation: document.getElementById("editExplanation").value,
+          }
+  }
+
+  
+  localStorage.setItem("studentList",JSON.stringify(updateStudentsData))
+
+ 
+  Read()
+
+
+}
+
+//Search......
+
+
+
+search.addEventListener("keyup",()=>{
+  const filterStudentListData = JSON.parse(localStorage.getItem("studentList"))
+  const searchInput =search.value.trim().toLowerCase();
+  const filteredData =filterStudentListData.filter(item => item.student.studentName.toLowerCase().includes(searchInput));
+  
+  
+  if(searchInput.length >= 1){
+    
+    create.innerHTML=""
+    console.log(filteredData.length);
+    console.log("eşleşti");
+
+    for(let i =0;i<filteredData.length;i++){
+
+      console.log(filteredData);
+    newCreateStudent = document.createElement("div");
+  
+                    newCreateStudent.classList.add("card");
+                    newCreateStudent.classList.add("text-center");
+                    newCreateStudent.setAttribute("style", "width:18rem");
+                    newCreateStudent.innerHTML += `
+                    
+                    
+                          <div class="cardDelete card-body " style="max-height: 300px; overflow-y:auto">
+                              <div>
+                                <h5 class="card-title">ÖĞRENCİ ADI</h5>
+                                <p>${filteredData[i].student.studentName}</p>
+                              </div>
+                            <div>
+                                <h5 class="card-title">SINIFI</h5>
+                                <p>${filteredData[i].student.studentSınıf}</p>
+                            </div>
+                              <h5 class="card-title">AÇIKLAMA</h5>
+                              <p class="card-text">
+                              ${filteredData[i].payment.explanation}
+                              </p>        
+                              <button class="detayShowbutton btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" onclick="DetaySearch(${i})">Detay</button>           
+                              
+                            </div>
+                
+                
+                        <div class="offcanvas offcanvas-top " style="height: 800px" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                        <div class="offcanvas-header ">
+                          <h2 class="offcanvas-title " id="offcanvasTopLabel"></h2>
+                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="studentData offcanvas-body">
+                
+                        
+                        
+
+                        <!-- Öğrenci Bilgileri Detaylı -->
+
+                        <div class="container d-flex gap-2 justify-content-center ">
+                        <div class="row">
+                        <h1 class="headerStudentdata">${filteredData[i].student.studentName}</h1>
+                        <div class="col-6 ">
+                
+                       
+                
+                        <table class="table" >               
+                             <tbody>
+                
+                             <tr class="table-active">
+                             <th scope="row">T.C. Kimlik No    :</th>
+                             <td class="studentDatatc table-active">${filteredData[i].student.studentTc}</td>
+                             </tr> 
+                
+                             <tr class="table-active">
+                             <th scope="row">Veli/Vasi Adı    :</th>
+                             <td class="studentDataVeliname table-active">${filteredData[i].student.studentVeli}</td>
+                             </tr>                                                                         
+                                                     
+                              <tr class="table-active">
+                              <th scope="row">Sınıfı    :</th>
+                              <td class="studentDatasınıf table-active">${filteredData[i].student.studentSınıf}</td>
+                              </tr>   
+                
+                              </tbody>
+                         </table>
+                
+                         </div>
+                
+                
+                        <div class="col-6 ">
+                        <table class="table" >
+                            <tbody class="">
+                
+                            <tr class="table-active">
+                            <th scope="row">Doğum Tarihi    :</th>
+                            <td class="studentDataborn table-active">${filteredData[i].student.studentBorn}</td>
+                            </tr>       
+                
+                            <tr class="table-active">
+                            <th scope="row">Adres   :</th>
+                            <td class="studentDataadres table-active">${filteredData[i].student.studentAdres}</td>
+                            </tr> 
+                
+                            <tr class="table-active">                     
+                            <th scope="row">Kayıt Tarihi    :</th>
+                            <td class="studentDatakayıt table-active">${filteredData[i].student.studentKayıt}</td>                        
+                            </tr>  
+                
+                            </tbody>
+                         </table>
+                
+                         </div>
+                        
+                        
+                         </div>
+                         </div>
+
+
+                         //Annesinin Bilgiler 
+
+
+        <div class="container d-flex gap-2 justify-content-center">
+        <div class="row">
+        <h1> Annesinin Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentMothertc table-active">${filteredData[i].mother.motherTc}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Adı Soyadı    :</th>
+             <td class="studentMothername table-active">${filteredData[i].mother.motherName}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Mesleği    :</th>
+              <td class="studentMotherjob table-active">${filteredData[i].mother.motherJob}</td>
+              </tr>   
+
+              <tr class="table-active">
+              <th scope="row">Cep Telefonu    :</th>
+              <td class="studentMothertel table-active">${filteredData[i].mother.motherTel}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">İş Telefonu    :</th>
+            <td class="studentMotherjobtel table-active">${filteredData[i].mother.motherJobTel}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentMotheradres table-active">${filteredData[i].mother.motherAdres}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Email    :</th>
+            <td class="studentMotheremail table-active">${filteredData[i].mother.motherEmail}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>
+        
+        
+         </div>
+         </div>
+
+
+         //Babasının Bilgiler 
+
+        <div class="container d-flex gap-2 justify-content-center">
+        <div class="row">
+        <h1> Babasının Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentFathertc table-active">${filteredData[i].father.fatherTc}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Adı Soyadı    :</th>
+             <td class="studentFathername table-active">${filteredData[i].father.fatherName}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Mesleği    :</th>
+              <td class="studentFatherjob table-active">${filteredData[i].father.fatherJob}</td>
+              </tr>   
+
+              <tr class="table-active">
+              <th scope="row">Cep Telefonu    :</th>
+              <td class="studentFathertel table-active">${filteredData[i].father.fatherTel}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">İş Telefonu    :</th>
+            <td class="studentFatherjobtel table-active">${filteredData[i].father.fatherJobTel}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentFatheradres table-active">${filteredData[i].father.fatherAdres}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Email    :</th>
+            <td class="studentFatheremail table-active">${filteredData[i].father.fatherEmail}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>
+        
+        
+         </div>
+         </div>
+
+
+         //Öğrencinin Vasi Bilgileri 
+
+
+        <div class="container d-flex gap-2 justify-content-center">
+        <div class="row">
+        <h1> Öğrencinin Vasi Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentVasitc table-active">${filteredData[i].vasi.vasiTc}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Adı Soyadı    :</th>
+             <td class="studentVasiname table-active">${filteredData[i].vasi.vasiName}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Mesleği    :</th>
+              <td class="studentVasijob table-active">${filteredData[i].vasi.vasiJob}</td>
+              </tr>   
+
+              <tr class="table-active">
+              <th scope="row">Cep Telefonu    :</th>
+              <td class="studentVasitel table-active">${filteredData[i].vasi.vasiTel}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">İş Telefonu    :</th>
+            <td class="studentVasijobtel table-active">${filteredData[i].vasi.vasiJobTel}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentVasiadres table-active">${filteredData[i].vasi.vasiAdres}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Email    :</th>
+            <td class="studentVasiemail table-active">${filteredData[i].vasi.vasiEmail}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>    
+        
+
+         </div>
+         </div>
+
+
+         //Ödeme Bilgileri
+
+
+        <div class="container d-flex gap-2 justify-content-center " >
+        <div class="row">
+        <h1> Ödeme Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table card-title" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">Ödeme Şekli    :</th>
+             <td class="studentPaymentmethod table-active">${filteredData[i].payment.paymentMethod}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Eğitim Ücreti    :</th>
+             <td class="studentEducationfee table-active">${filteredData[i].payment.educationFee}</td>
+             </tr>       
+             
+             
+             <tr class="table-active">
+             <th scope="row">Ödeme Tarihi    :</th>
+             <td class="studentPaymentday table-active">${filteredData[i].payment.paymentDay}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Açıklama    :</th>
+              <td class="studentExplanation table-active">${filteredData[i].payment.explanation}</td>
+              </tr>                     
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+         </div>
+         </div>
+
+         //Buton
+
+         <div class="grid d-md-block">
+            <button class="btn btn-success m-5" type="button" onClick="Edit()">Güncelle</button>
+            <button class="delete btn btn-danger m-5" type="button" onClick="Delete()">Öğrenci Sil</button>
+        </div>
+
+
+
+
+                
+                      `;
+                      create.appendChild(newCreateStudent);
+                                
+  }} else {
+    // searchList.innerHTML = ""
+    const newCreateStudent = document.createElement("div");
+  
+    newCreateStudent.classList.add("card");
+    newCreateStudent.classList.add("text-center");
+    newCreateStudent.setAttribute("style", "width:18rem");
+    newCreateStudent.innerHTML = `
+    
+            <div class="cardDelete card-body">
+              <div>
+                <h5 class="card-title">ÖĞRENCİ ADI</h5>
+                <p>${studentName.value}</p>
+              </div>
+              <div>
+                <h5 class="card-title">SINIFI</h5>
+                <p>${studentSınıf.value}</p>
+              </div>
+              <h5 class="card-title">AÇIKLAMA</h5>
+              <p class="card-text">
+              ${explanation.value}
+              </p>        
+              <button class="detayShowbutton btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Detay</button>           
+              
+            </div>
+
+
+            <div class="offcanvas offcanvas-top " style="height: 800px" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header ">
+          <h2 class="offcanvas-title " id="offcanvasTopLabel"></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="studentData offcanvas-body">
+
+        
+         <!-- Öğrenci Bilgileri Detaylı -->
+
+        <div class="container d-flex gap-2 justify-content-center ">
+        <div class="row">
+        <h1 class="headerStudentdata">${studentName.value}</h1>
+        <div class="col-6 ">
+
+       
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentDatatc table-active">${studentTc.value}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Veli/Vasi Adı    :</th>
+             <td class="studentDataVeliname table-active">${studentVeli.value}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Sınıfı    :</th>
+              <td class="studentDatasınıf table-active">${studentSınıf.value}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">Doğum Tarihi    :</th>
+            <td class="studentDataborn table-active">${studentBorn.value}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentDataadres table-active">${studentAdres.value}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Kayıt Tarihi    :</th>
+            <td class="studentDatakayıt table-active">${studentKayıt.value}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>
+        
+        
+         </div>
+         </div>
+
+
+         //Annesinin Bilgiler 
+
+
+        <div class="container d-flex gap-2 justify-content-center">
+        <div class="row">
+        <h1> Annesinin Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentMothertc table-active">${motherTc.value}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Adı Soyadı    :</th>
+             <td class="studentMothername table-active">${motherName.value}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Mesleği    :</th>
+              <td class="studentMotherjob table-active">${motherJob.value}</td>
+              </tr>   
+
+              <tr class="table-active">
+              <th scope="row">Cep Telefonu    :</th>
+              <td class="studentMothertel table-active">${motherTel.value}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">İş Telefonu    :</th>
+            <td class="studentMotherjobtel table-active">${motherJobTel.value}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentMotheradres table-active">${motherAdres.value}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Email    :</th>
+            <td class="studentMotheremail table-active">${motherEmail.value}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>
+        
+        
+         </div>
+         </div>
+
+
+         //Babasının Bilgiler 
+
+        <div class="container d-flex gap-2 justify-content-center">
+        <div class="row">
+        <h1> Babasının Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentFathertc table-active">${fatherTc.value}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Adı Soyadı    :</th>
+             <td class="studentFathername table-active">${fatherName.value}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Mesleği    :</th>
+              <td class="studentFatherjob table-active">${fatherJob.value}</td>
+              </tr>   
+
+              <tr class="table-active">
+              <th scope="row">Cep Telefonu    :</th>
+              <td class="studentFathertel table-active">${fatherTel.value}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">İş Telefonu    :</th>
+            <td class="studentFatherjobtel table-active">${fatherJobTel.value}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentFatheradres table-active">${fatherAdres.value}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Email    :</th>
+            <td class="studentFatheremail table-active">${fatherEmail.value}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>
+        
+        
+         </div>
+         </div>
+
+
+         //Öğrencinin Vasi Bilgileri 
+
+
+        <div class="container d-flex gap-2 justify-content-center">
+        <div class="row">
+        <h1> Öğrencinin Vasi Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">T.C. Kimlik No    :</th>
+             <td class="studentVasitc table-active">${vasiTc.value}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Adı Soyadı    :</th>
+             <td class="studentVasiname table-active">${vasiName.value}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Mesleği    :</th>
+              <td class="studentVasijob table-active">${vasiJob.value}</td>
+              </tr>   
+
+              <tr class="table-active">
+              <th scope="row">Cep Telefonu    :</th>
+              <td class="studentVasitel table-active">${vasiTel.value}</td>
+              </tr>   
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+        <div class="col-6 ">
+        <table class="table" >
+            <tbody class="">
+
+            <tr class="table-active">
+            <th scope="row">İş Telefonu    :</th>
+            <td class="studentVasijobtel table-active">${vasiJobTel.value}</td>
+            </tr>       
+
+            <tr class="table-active">
+            <th scope="row">Adres   :</th>
+            <td class="studentVasiadres table-active">${vasiAdres.value}</td>
+            </tr> 
+
+            <tr class="table-active">                     
+            <th scope="row">Email    :</th>
+            <td class="studentVasiemail table-active">${vasiEmail.value}</td>                        
+            </tr>  
+
+            </tbody>
+         </table>
+
+         </div>    
+        
+
+         </div>
+         </div>
+
+
+         //Ödeme Bilgileri
+
+
+        <div class="container d-flex gap-2 justify-content-center " >
+        <div class="row">
+        <h1> Ödeme Bilgileri</h1>
+        <div class="col-6 ">
+
+        <table class="table card-title" >               
+             <tbody>
+
+             <tr class="table-active">
+             <th scope="row">Ödeme Şekli    :</th>
+             <td class="studentPaymentmethod table-active">${paymentMethod.value}</td>
+             </tr> 
+
+             <tr class="table-active">
+             <th scope="row">Eğitim Ücreti    :</th>
+             <td class="studentEducationfee table-active">${educationFee.value}</td>
+             </tr>       
+             
+             
+             <tr class="table-active">
+             <th scope="row">Ödeme Tarihi    :</th>
+             <td class="studentPaymentday table-active">${paymentDay.value}</td>
+             </tr>                                                                         
+                                     
+              <tr class="table-active">
+              <th scope="row">Açıklama    :</th>
+              <td class="studentExplanation table-active">${explanation.value}</td>
+              </tr>                     
+
+              </tbody>
+         </table>
+
+         </div>
+
+
+         </div>
+         </div>
+
+         //Buton
+
+         <div class="grid d-md-block">
+            <button class="btn btn-success m-5" type="button" onClick="Edit()">Güncelle</button>
+            <button class="delete btn btn-danger m-5" type="button" onClick="Delete()">Öğrenci Sil</button>
+        </div>
+
+       
+              
+
+        </div>
+      </div>
+    
+  
+      `;
+
+      create.appendChild(newCreateStudent);
+
+    
+  }
+
+})
+
+
+
+
+
+ 
 
 
