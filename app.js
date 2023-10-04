@@ -2482,7 +2482,7 @@ function searchDelete (i){
   const searchInput =search.value.trim().toLowerCase();
   const deletefilteredData =filterStudentListData.filter(item => item.student.studentName.toLowerCase().includes(searchInput));
 
-  deletefilteredData.remove(i)
+  deletefilteredData[i].remove()
   localStorage.setItem("studentList",JSON.stringify(filterStudentListData))
   Read()
   search.value=""
