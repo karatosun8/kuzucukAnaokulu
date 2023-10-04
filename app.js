@@ -2462,13 +2462,15 @@ function DetaySearch(i){
           
                    <div class="grid d-md-block">
                       <button class="btn btn-success m-5" type="button" onClick="searchEdit(${i})">Güncelle</button>
-                      <button class="delete btn btn-danger m-5" type="button" onClick="Delete(${i})">Öğrenci Sil</button>
+                      
                   </div>
   
   
   `
   
 }
+// search deki delete tuşu iptal
+{/* <button class="delete btn btn-danger m-5" type="button" onClick="Delete(${i})">Öğrenci Sil</button> */}
 
 
 function searchEdit(i){
