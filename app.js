@@ -2472,22 +2472,7 @@ function DetaySearch(i){
 }
 
 
-function searchDelete (i){
 
-
-
-
-
-  const filterStudentListData = JSON.parse(localStorage.getItem("studentList"))
-  const searchInput =search.value.trim().toLowerCase();
-  const deletefilteredData =filterStudentListData.filter(item => item.student.studentName.toLowerCase().includes(searchInput));
-
-  deletefilteredData[i].remove()
-  localStorage.setItem("studentList",JSON.stringify(filterStudentListData))
-  Read()
-  search.value=""
-
-}
 
 
 function searchEdit(i){
