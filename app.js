@@ -2973,7 +2973,7 @@ function searchUpdate(i){
   Read()
   
   search.value=""
-
+  location.reload()
 }
 
  
