@@ -2462,15 +2462,32 @@ function DetaySearch(i){
           
                    <div class="grid d-md-block">
                       <button class="btn btn-success m-5" type="button" onClick="searchEdit(${i})">Güncelle</button>
-                      
+                      <button class="delete btn btn-danger m-5" type="button" onClick="searchDelete(${i})">Öğrenci Sil</button>
+
                   </div>
   
   
   `
   
 }
-// search deki delete tuşu iptal
-{/* <button class="delete btn btn-danger m-5" type="button" onClick="Delete(${i})">Öğrenci Sil</button> */}
+
+
+function searchDelete (i){
+
+
+
+
+
+  const filterStudentListData = JSON.parse(localStorage.getItem("studentList"))
+  const searchInput =search.value.trim().toLowerCase();
+  const deletefilteredData =filterStudentListData.filter(item => item.student.studentName.toLowerCase().includes(searchInput));
+
+  deletefilteredData.splice(i,1)
+  localStorage.setItem("studentList",JSON.stringify(filterStudentListData))
+  Read()
+  search.value=""
+
+}
 
 
 function searchEdit(i){
