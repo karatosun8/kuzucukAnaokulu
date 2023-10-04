@@ -477,7 +477,7 @@ function Create(){
   
       `;
 
-      create.appendChild(newCreateStudent);
+      
 
 
 
@@ -597,6 +597,7 @@ function Delete(item){
     deleteStudentList.splice(item,1)
     localStorage.setItem("studentList",JSON.stringify(deleteStudentList))
     Read()
+    search.value=""
 }
 
 function Detay(i){
@@ -1399,7 +1400,7 @@ function Update(item){
 
  
   Read()
-
+search.value=""
 
 }
 
@@ -2136,7 +2137,7 @@ search.addEventListener("keyup",()=>{
       create.appendChild(newCreateStudent);
 
     
-  }
+  } 
   Read()
 }
 
@@ -2489,18 +2490,18 @@ function searchEdit(i){
   detayEkle.innerHTML = `
   <div class="modal-dialog " style="margin: auto">
   <div
-    class="modal-content d-flex justify-content-start "
-    style="width: 1000px"
+    class="modal-content d-flex justify-content-center" 
+    
   >
-    <div>
-      <div class="modal-header text-center bg-body-secondary">
-        <h1 class="modal-title fs-5 justify-content-center" id="">ÖĞRENCİ VERİ GÜNCELLEME</h1>
+    <div class="justify-content-center text-center">
+      <div class="modal-header text-center bg-body-secondary p-3 justify-content-center" >
+        <h1 class="modal-title fs-5 " id="">ÖĞRENCİ VERİ GÜNCELLEME</h1>
         
       </div>
-      <div class="modal-body bg-body-secondary">
+      <div class="modal-body bg-body-secondary justify-content-center" >
         <!-- Öğrenci Kayıt Bilgileri Start -->
-        <form class="d-flex gap-4 ">
-          <div class="mb-3 form-control ">
+        <form class="d-flex gap-4 w-75 "style="margin-left: 300px" >
+          <div class="mb-3 form-control " style="width: 900px">
             <h1 class="modal-title fs-5 m-3" id="exampleModalLabel">
               ÖĞRENCİ BİLGİLERİ
             </h1>
@@ -2906,6 +2907,7 @@ function searchUpdate(i){
   const updatedStudentList = studentList.map(item => {
 
     const filteredItem = filteredData.find(filteredItem =>filteredItem.student.studentTc === item.student.studentTc);
+    
     filteredData[i]= {
     
       student: {
@@ -2950,9 +2952,16 @@ function searchUpdate(i){
         paymentDay: document.getElementById("editPaymentDay").value,
         explanation: document.getElementById("editExplanation").value,
       }
+
+      
   }
+  
     return filteredItem ? filteredItem : item;
+    
   })
+
+ 
+  
 
   console.log(updatedStudentList);
   
@@ -2962,7 +2971,8 @@ function searchUpdate(i){
   
   
   Read()
-
+  
+  search.value=""
 
 }
 
