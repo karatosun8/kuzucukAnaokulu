@@ -65,7 +65,7 @@ Read()
 function Read (){
     nameStudentListDOM.innerHTML ="";
     getStudentList = JSON.parse(localStorage.getItem("studentList"));
-    if(studentList =! null) {
+    if(studentList !== null) {
         if(getStudentList.length === 0){
             nameStudentListDOM.innerHTML = "Kayıtlı Öğrenci Bulunmamaktadır !!"
         } else {
