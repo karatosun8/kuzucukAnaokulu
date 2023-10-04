@@ -53,7 +53,7 @@ const explanation = document.querySelector(".explanation");
 
 
 let studentList = []
-let getStudentList =[];
+let getStudentList ;
 let nameStudentListDOM = document.querySelector("#nameStudentList");
 
 
