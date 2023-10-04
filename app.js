@@ -60,7 +60,7 @@ let nameStudentListDOM = document.querySelector("#nameStudentList");
 
 
 //Veri kaydettikten sonra aktifleştir
-Read()
+// Read()
 
 function Read (){
     nameStudentListDOM.innerHTML ="";
